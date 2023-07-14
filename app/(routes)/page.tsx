@@ -1,21 +1,25 @@
 import getBillboard from "@/actions/get-billboard";
+import getProducts from "@/actions/get-products";
 import Container from "@/components/container";
+import ProductList from "@/components/product-list";
 import Billboard from "@/components/ui/billboard";
 
 export const revalidate = 0;
 
 const HomePage = async () => {
 	const billboard = await getBillboard("ad760247-2261-4a75-9ae0-3c6022b75291");
-	
-  console.log('billboard');
-  return (
-		<div>
-			<Container>
-				<div className="space-y-10 pb-10">
-					<Billboard data={billboard} />
+	const products = await getProducts({ isFeatured: true });
+
+	console.log("billboard");
+	return (
+		<Container>
+			<div className="space-y-10 pb-10">
+				<Billboard data={billboard} />
+				<div className="flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8">
+					<ProductList title="Featured Products" items={products} />
 				</div>
-			</Container>
-		</div>
+			</div>
+		</Container>
 	);
 };
 
