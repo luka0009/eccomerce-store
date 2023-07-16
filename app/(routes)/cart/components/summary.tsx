@@ -49,12 +49,16 @@ const Summary = () => {
 					<Currency value={totalPrice} />
 				</div>
 			</div>
-			<Button onClick={onCheckout} disabled={false} className="w-full mt-6">
+			<Button
+				onClick={onCheckout}
+				disabled={items.length === 0}
+				className="w-full mt-6"
+			>
 				Checkout
 			</Button>
 			<Button
 				onClick={removeAll}
-				disabled={false}
+				disabled={items.length === 0}
 				className="w-full mt-3 bg-red-600"
 			>
 				Remove all items
