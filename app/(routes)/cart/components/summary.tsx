@@ -52,7 +52,11 @@ const Summary = () => {
 			<Button onClick={onCheckout} disabled={false} className="w-full mt-6">
 				Checkout
 			</Button>
-			<Button onClick={removeAll} disabled={false} className="w-full mt-6 bg-red-600">
+			<Button
+				onClick={removeAll}
+				disabled={false}
+				className="w-full mt-3 bg-red-600"
+			>
 				Remove all items
 			</Button>
 		</div>
